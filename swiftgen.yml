@@ -1,0 +1,15 @@
+ input_dir: Favorite Countries/
+
+ output_dir: Favorite Countries/Generated/
+
+ xcassets:
+   inputs:
+     - Resources/Assets.xcassets
+     - Resources/Colors.xcassets
+
+   outputs:
+     - templateName: swift5
+       params:
+         forceProvidesNamespaces: true
+       output: XCAssets+Generated.swift
+

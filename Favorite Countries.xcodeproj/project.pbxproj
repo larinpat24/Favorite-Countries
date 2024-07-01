@@ -7,14 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B1847AF2C3355B5009D6CC5 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1B1847AE2C3355B5009D6CC5 /* swiftgen.yml */; };
+		1B33ECC32C33597C006ED724 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B33ECC22C33597C006ED724 /* Colors.xcassets */; };
+		1B33ECC72C335B04006ED724 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B33ECC62C335B04006ED724 /* XCAssets+Generated.swift */; };
 		1BB734222C2F3C7500990527 /* Favorite_CountriesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB734212C2F3C7500990527 /* Favorite_CountriesApp.swift */; };
 		1BB734242C2F3C7500990527 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB734232C2F3C7500990527 /* ContentView.swift */; };
 		1BB734262C2F3C7500990527 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB734252C2F3C7500990527 /* Item.swift */; };
 		1BB734282C2F3C7700990527 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BB734272C2F3C7700990527 /* Assets.xcassets */; };
 		1BB7342C2C2F3C7700990527 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BB7342B2C2F3C7700990527 /* Preview Assets.xcassets */; };
+		30C1AD58CFF6BD883DC11358 /* Pods_Favorite_Countries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04D05137E47BE5468C9C269 /* Pods_Favorite_Countries.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18510C4458CC816C56F5A427 /* Pods-Favorite Countries.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Favorite Countries.debug.xcconfig"; path = "Target Support Files/Pods-Favorite Countries/Pods-Favorite Countries.debug.xcconfig"; sourceTree = "<group>"; };
+		1B1847AE2C3355B5009D6CC5 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
+		1B33ECC22C33597C006ED724 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		1B33ECC62C335B04006ED724 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		1BB7341E2C2F3C7500990527 /* Favorite Countries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Favorite Countries.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BB734212C2F3C7500990527 /* Favorite_CountriesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite_CountriesApp.swift; sourceTree = "<group>"; };
 		1BB734232C2F3C7500990527 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -22,6 +30,8 @@
 		1BB734272C2F3C7700990527 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BB734292C2F3C7700990527 /* Favorite_Countries.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Favorite_Countries.entitlements; sourceTree = "<group>"; };
 		1BB7342B2C2F3C7700990527 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		39915AD6D94862436A5C4D02 /* Pods-Favorite Countries.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Favorite Countries.release.xcconfig"; path = "Target Support Files/Pods-Favorite Countries/Pods-Favorite Countries.release.xcconfig"; sourceTree = "<group>"; };
+		C04D05137E47BE5468C9C269 /* Pods_Favorite_Countries.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Favorite_Countries.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +39,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30C1AD58CFF6BD883DC11358 /* Pods_Favorite_Countries.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B33ECC42C335A66006ED724 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				1B33ECC62C335B04006ED724 /* XCAssets+Generated.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		1B33ECC52C335A7C006ED724 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1BB734272C2F3C7700990527 /* Assets.xcassets */,
+				1B33ECC22C33597C006ED724 /* Colors.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		1BB734152C2F3C7500990527 = {
 			isa = PBXGroup;
 			children = (
+				1B1847AE2C3355B5009D6CC5 /* swiftgen.yml */,
 				1BB734202C2F3C7500990527 /* Favorite Countries */,
 				1BB7341F2C2F3C7500990527 /* Products */,
+				1F2662EB20C2AF08B0CDC143 /* Pods */,
+				EFB81F7E8A7DE1B5D9EEE451 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,7 +88,8 @@
 				1BB734212C2F3C7500990527 /* Favorite_CountriesApp.swift */,
 				1BB734232C2F3C7500990527 /* ContentView.swift */,
 				1BB734252C2F3C7500990527 /* Item.swift */,
-				1BB734272C2F3C7700990527 /* Assets.xcassets */,
+				1B33ECC52C335A7C006ED724 /* Resources */,
+				1B33ECC42C335A66006ED724 /* Generated */,
 				1BB734292C2F3C7700990527 /* Favorite_Countries.entitlements */,
 				1BB7342A2C2F3C7700990527 /* Preview Content */,
 			);
@@ -72,6 +104,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		1F2662EB20C2AF08B0CDC143 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				18510C4458CC816C56F5A427 /* Pods-Favorite Countries.debug.xcconfig */,
+				39915AD6D94862436A5C4D02 /* Pods-Favorite Countries.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EFB81F7E8A7DE1B5D9EEE451 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C04D05137E47BE5468C9C269 /* Pods_Favorite_Countries.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -79,6 +128,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1BB7342F2C2F3C7700990527 /* Build configuration list for PBXNativeTarget "Favorite Countries" */;
 			buildPhases = (
+				9D346BF157CDAFC99773532D /* [CP] Check Pods Manifest.lock */,
+				1B1847B02C3356AB009D6CC5 /* SwiftGen */,
 				1BB7341A2C2F3C7500990527 /* Sources */,
 				1BB7341B2C2F3C7500990527 /* Frameworks */,
 				1BB7341C2C2F3C7500990527 /* Resources */,
@@ -131,11 +182,56 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BB7342C2C2F3C7700990527 /* Preview Assets.xcassets in Resources */,
+				1B33ECC32C33597C006ED724 /* Colors.xcassets in Resources */,
 				1BB734282C2F3C7700990527 /* Assets.xcassets in Resources */,
+				1B1847AF2C3355B5009D6CC5 /* swiftgen.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B1847B02C3356AB009D6CC5 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
+		};
+		9D346BF157CDAFC99773532D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Favorite Countries-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1BB7341A2C2F3C7500990527 /* Sources */ = {
@@ -145,6 +241,7 @@
 				1BB734242C2F3C7500990527 /* ContentView.swift in Sources */,
 				1BB734262C2F3C7500990527 /* Item.swift in Sources */,
 				1BB734222C2F3C7500990527 /* Favorite_CountriesApp.swift in Sources */,
+				1B33ECC72C335B04006ED724 /* XCAssets+Generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,7 +285,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -249,7 +346,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -267,6 +364,7 @@
 		};
 		1BB734302C2F3C7700990527 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18510C4458CC816C56F5A427 /* Pods-Favorite Countries.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -275,6 +373,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Favorite Countries/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -286,7 +385,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -303,6 +402,7 @@
 		};
 		1BB734312C2F3C7700990527 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39915AD6D94862436A5C4D02 /* Pods-Favorite Countries.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -311,6 +411,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Favorite Countries/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -322,7 +423,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
