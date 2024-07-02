@@ -10,6 +10,7 @@
 		1B1847AF2C3355B5009D6CC5 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1B1847AE2C3355B5009D6CC5 /* swiftgen.yml */; };
 		1B33ECC32C33597C006ED724 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B33ECC22C33597C006ED724 /* Colors.xcassets */; };
 		1B33ECC72C335B04006ED724 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B33ECC62C335B04006ED724 /* XCAssets+Generated.swift */; };
+		1B33ECCD2C344A4C006ED724 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B33ECCC2C344A4C006ED724 /* Country.swift */; };
 		1BB734222C2F3C7500990527 /* Favorite_CountriesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB734212C2F3C7500990527 /* Favorite_CountriesApp.swift */; };
 		1BB734242C2F3C7500990527 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB734232C2F3C7500990527 /* ContentView.swift */; };
 		1BB734262C2F3C7500990527 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB734252C2F3C7500990527 /* Item.swift */; };
@@ -23,6 +24,7 @@
 		1B1847AE2C3355B5009D6CC5 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		1B33ECC22C33597C006ED724 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		1B33ECC62C335B04006ED724 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
+		1B33ECCC2C344A4C006ED724 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		1BB7341E2C2F3C7500990527 /* Favorite Countries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Favorite Countries.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BB734212C2F3C7500990527 /* Favorite_CountriesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite_CountriesApp.swift; sourceTree = "<group>"; };
 		1BB734232C2F3C7500990527 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				1B33ECC42C335A66006ED724 /* Generated */,
 				1BB734292C2F3C7700990527 /* Favorite_Countries.entitlements */,
 				1BB7342A2C2F3C7700990527 /* Preview Content */,
+				1B33ECCC2C344A4C006ED724 /* Country.swift */,
 			);
 			path = "Favorite Countries";
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				1BB734242C2F3C7500990527 /* ContentView.swift in Sources */,
 				1BB734262C2F3C7500990527 /* Item.swift in Sources */,
 				1BB734222C2F3C7500990527 /* Favorite_CountriesApp.swift in Sources */,
+				1B33ECCD2C344A4C006ED724 /* Country.swift in Sources */,
 				1B33ECC72C335B04006ED724 /* XCAssets+Generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
