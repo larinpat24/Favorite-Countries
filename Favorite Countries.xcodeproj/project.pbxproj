@@ -19,6 +19,7 @@
 		1B33ECF42C35A320006ED724 /* FCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B33ECEC2C35A320006ED724 /* FCError.swift */; };
 		1B33ECF62C35A35B006ED724 /* FavoriteCountryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B33ECF52C35A35B006ED724 /* FavoriteCountryListViewModel.swift */; };
 		1B33ECF82C35A392006ED724 /* FavoriteCountryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B33ECF72C35A392006ED724 /* FavoriteCountryListCell.swift */; };
+		1B33ECFB2C35A982006ED724 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B33ECFA2C35A982006ED724 /* Launch Screen.storyboard */; };
 		1BB734282C2F3C7700990527 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BB734272C2F3C7700990527 /* Assets.xcassets */; };
 		1BB7342C2C2F3C7700990527 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BB7342B2C2F3C7700990527 /* Preview Assets.xcassets */; };
 		30C1AD58CFF6BD883DC11358 /* Pods_Favorite_Countries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04D05137E47BE5468C9C269 /* Pods_Favorite_Countries.framework */; };
@@ -38,6 +39,8 @@
 		1B33ECEC2C35A320006ED724 /* FCError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FCError.swift; path = ../../FCError.swift; sourceTree = "<group>"; };
 		1B33ECF52C35A35B006ED724 /* FavoriteCountryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCountryListViewModel.swift; sourceTree = "<group>"; };
 		1B33ECF72C35A392006ED724 /* FavoriteCountryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCountryListCell.swift; sourceTree = "<group>"; };
+		1B33ECF92C35A5BC006ED724 /* Favorite-Countries-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Favorite-Countries-Info.plist"; sourceTree = SOURCE_ROOT; };
+		1B33ECFA2C35A982006ED724 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		1BB7341E2C2F3C7500990527 /* Favorite Countries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Favorite Countries.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BB734272C2F3C7700990527 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BB734292C2F3C7700990527 /* Favorite_Countries.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Favorite_Countries.entitlements; sourceTree = "<group>"; };
@@ -97,6 +100,7 @@
 		1BB734202C2F3C7500990527 /* Favorite Countries */ = {
 			isa = PBXGroup;
 			children = (
+				1B33ECF92C35A5BC006ED724 /* Favorite-Countries-Info.plist */,
 				1B33ECE82C35A320006ED724 /* Favorite_CountriesApp.swift */,
 				1B33ECE12C35A2C0006ED724 /* NetworkManager.swift */,
 				1B33ECEC2C35A320006ED724 /* FCError.swift */,
@@ -106,6 +110,7 @@
 				1B33ECE62C35A320006ED724 /* CountryListCell.swift */,
 				1B33ECEA2C35A320006ED724 /* FavoriteCountryListView.swift */,
 				1B33ECF52C35A35B006ED724 /* FavoriteCountryListViewModel.swift */,
+				1B33ECFA2C35A982006ED724 /* Launch Screen.storyboard */,
 				1B33ECC52C335A7C006ED724 /* Resources */,
 				1B33ECC42C335A66006ED724 /* Generated */,
 				1BB734292C2F3C7700990527 /* Favorite_Countries.entitlements */,
@@ -202,6 +207,7 @@
 				1BB7342C2C2F3C7700990527 /* Preview Assets.xcassets in Resources */,
 				1B33ECC32C33597C006ED724 /* Colors.xcassets in Resources */,
 				1BB734282C2F3C7700990527 /* Assets.xcassets in Resources */,
+				1B33ECFB2C35A982006ED724 /* Launch Screen.storyboard in Resources */,
 				1B1847AF2C3355B5009D6CC5 /* swiftgen.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,12 +405,14 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Favorite-Countries-Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -437,12 +445,14 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Favorite-Countries-Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
