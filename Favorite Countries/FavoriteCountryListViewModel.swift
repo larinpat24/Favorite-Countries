@@ -10,7 +10,9 @@ import SwiftUI
 @MainActor
 final class FavoriteCountryListViewModel: ObservableObject {
     
-    @Published var favoriteCountries: [Country] = []
+    @Published private(set) var favoriteCountries: [Country] = []
+    @Published private(set) var error: FCError?
+    @Published var hasError = false
     
     func getCountries() {
         Task {
@@ -20,17 +22,18 @@ final class FavoriteCountryListViewModel: ObservableObject {
                 if let fcError = error as? FCError {
                     switch fcError {
                     case .invalidURL:
-                        print("handle error here")
+                        self.error = FCError.invalidURL
                     case .invalidResponse:
-                        print("handle error here")
+                        self.error = FCError.invalidResponse
                     case .invalidData:
-                        print("handle error here")
+                        self.error = FCError.invalidData
                     case .unableToComplete:
-                        print("handle error here")
+                        self.error = FCError.unableToComplete
                     }
                 } else {
-                    print("handle error here for unable to complete")
+                    self.error = FCError.invalidData
                 }
+                hasError = true
             }
         }
     }
