@@ -6,19 +6,27 @@
 //
 
 import SwiftUI
+import SwiftData
 
+@Observable
 final class FavoriteCountryListViewModel: ObservableObject {
+    @ObservationIgnored
+    private let dataSource: CountryDataSource
+    var favoriteCountries: [Country] = []
     
-    @Published private(set) var favoriteCountries: [Country] = []
-    @Published private(set) var error: FCError?
-    @Published var hasError = false
-    @Published private(set) var viewState: ViewState?
+    private(set) var error: FCError?
+    var hasError = false
+    private(set) var viewState: ViewState?
     
     private var page = 1
     private var totalPages: Int?
     
     var isFetching: Bool {
         viewState == .fetching
+    }
+    
+    init(database: CountryDataSource = CountryDataSource.shared) {
+        self.dataSource = database
     }
     
     @MainActor
