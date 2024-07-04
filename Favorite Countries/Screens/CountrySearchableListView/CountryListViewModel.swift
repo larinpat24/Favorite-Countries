@@ -10,8 +10,8 @@ import SwiftData
 
 @Observable
 final class CountryListViewModel {
-    var selectedCountry: Country?
-    var countries: [Country] = []
+    var selectedCountry: SearchableCountry?
+    var countries: [SearchableCountry] = []
     
     private(set) var error: FCError?
     var hasError = false
@@ -100,7 +100,7 @@ extension CountryListViewModel {
 
 extension CountryListViewModel {
     
-    func navigationDestination(for country: Country) {
+    func navigationDestination(for country: SearchableCountry) {
         selectedCountry = country
     }
     

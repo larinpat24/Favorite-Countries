@@ -6,8 +6,38 @@
 //
 
 import Foundation
+import SwiftData
 
 @Observable
 final class FavoriteCountryListViewModel {
+    var favoriteCountries: [FavoriteCountry] = []
+    private let favoriteCountryDB: FavoriteCountryDataBase = .shared
+    var showEmptyState: Bool = false
     
+    init() {
+        fetchCountries()
+    }
+    
+    private func fetchCountries() {
+        favoriteCountries = favoriteCountryDB.fetchFavoriteCountries()
+        
+        if favoriteCountries.isEmpty {
+            showEmptyState = true
+        } else {
+            showEmptyState = false
+        }
+    }
+    
+    func deleteItems(at offsets: IndexSet) {
+        for index in offsets {
+            let countryToDelete = favoriteCountries[index]
+            favoriteCountryDB.removeFavoriteCountry(countryToDelete)
+        }
+        fetchCountries()
+    }
+    
+    func createFavoriteCountry(country: FavoriteCountry) {
+        favoriteCountryDB.addFavoriteCountry(country: country)
+        fetchCountries()
+    }
 }

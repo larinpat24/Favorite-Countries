@@ -12,7 +12,7 @@ import SwiftData
 struct Favorite_CountriesApp: App {
     
     init() {
-        _ = CountryDataSource.shared
+        _ = FavoriteCountryDataBase.shared
     }
     
     var body: some Scene {

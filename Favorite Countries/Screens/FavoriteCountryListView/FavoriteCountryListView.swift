@@ -5,6 +5,9 @@ struct FavoriteCountryListView: View {
     
     @State private var showSearchableCountriesView = false
     @Environment(\.presentations) private var presentations
+    
+    @State private var viewModel: FavoriteCountryListViewModel = FavoriteCountryListViewModel()
+
 
     init() {
         adjustNavigationTitleToFitScreen()
@@ -13,10 +16,23 @@ struct FavoriteCountryListView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                List(MockData.sampleFavoriteCountries) { favoriteCountry in
-                    FavoriteCountryListCell(favoriteCountry: favoriteCountry)
+                List {
+                    ForEach(viewModel.favoriteCountries) { favoriteCountry in
+                        FavoriteCountryListCell(favoriteCountry: favoriteCountry)
+                    }
+                    .onDelete(perform: { indexSet in
+                        viewModel.deleteItems(at: indexSet)
+                    })
+                        
                 }
                 .listStyle(.plain)
+                
+                if viewModel.showEmptyState {
+                    ContentUnavailableView("No Favorite Countries Added",
+                                           systemImage: "globe.americas.fill",
+                                           description: Text("Click the plus button to add your favorites countries"))
+                    .padding(.bottom, 150)
+                }
             }
             .navigationTitle("My Favorite Countries 🌎")
             .toolbar {
@@ -25,7 +41,8 @@ struct FavoriteCountryListView: View {
                 }
             }
             .sheet(isPresented: $showSearchableCountriesView) {
-                CountrySearchableListView(showSearchableCountriesView: $showSearchableCountriesView)
+                CountrySearchableListView(favoriteCountryListViewModel: viewModel, 
+                                          showSearchableCountriesView: $showSearchableCountriesView)
                     .environment(\.presentations, presentations + [$showSearchableCountriesView])
             }
         }

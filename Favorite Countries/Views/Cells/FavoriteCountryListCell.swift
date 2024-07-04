@@ -9,12 +9,12 @@ import SwiftUI
 
 struct FavoriteCountryListCell: View {
     
-    let favoriteCountry: Country
+    let favoriteCountry: FavoriteCountry
     
     var body: some View {
         VStack(alignment: .leading) {
-            CountryListView(country: favoriteCountry,
-                            presentHorizontally: true)
+                CountryListView(country: favoriteCountry as Country,
+                                presentHorizontally: true)
             
             VStack(alignment: .leading){
                 Text("Details:")
@@ -23,7 +23,7 @@ struct FavoriteCountryListCell: View {
                     .foregroundStyle(.secondary)
                     .padding(.top, 4)
                 
-                Text(favoriteCountry.userNotes)
+                Text(favoriteCountry.userNotes.isEmpty ? "None" : favoriteCountry.userNotes)
                     .font(.footnote)
                     .fontWeight(.light)
                     .foregroundStyle(.secondary)
@@ -33,5 +33,5 @@ struct FavoriteCountryListCell: View {
 }
 
 #Preview {
-    FavoriteCountryListCell(favoriteCountry: MockData.sampleFavoriteCountry)
+    FavoriteCountryListCell(favoriteCountry: FavoriteCountryMockData.sampleFavoriteCountry)
 }

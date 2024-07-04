@@ -12,6 +12,12 @@ struct CountryDetailView: View {
     @State private var userNotes: String = ""
     @Environment(\.dismiss) var dismiss
     @Environment(\.presentations) private var presentations
+    
+    var viewModel: FavoriteCountryListViewModel
+    
+    var countryAlreadyAdded: Bool {
+        viewModel.favoriteCountries.contains(where: { $0.countryCode == country.countryCode })
+    }
 
     var body: some View {
         NavigationStack {
@@ -19,12 +25,30 @@ struct CountryDetailView: View {
                 CountryListView(country: country,
                                 presentHorizontally: false)
                 
-                MultiLineTextView(description: $userNotes,
-                                  placeHolder: "My favorite things about \(country.name)...")
-                .padding(.bottom, 50)
-                                
-                FCButton(title: "Add as Favorite Country") {
-                    presentations.forEach {$0.wrappedValue = false }
+                
+                
+                if  countryAlreadyAdded {
+                    /// country already added to favorites
+                    ContentUnavailableView("This country is already in your favorites. Good Choice! 🥳", systemImage: "suitcase.cart.fill")
+                        .padding(.bottom, 100)
+                    Spacer()
+                } else {
+                    
+                    MultiLineTextView(description: $userNotes,
+                                      placeHolder: "My favorite things about \(country.name)...")
+                    .padding(.bottom, 50)
+                    
+                    FCButton(title: "Add as Favorite Country") {
+                        viewModel.createFavoriteCountry(country: FavoriteCountry(id: UUID(),
+                                                                                 countryCode: country.countryCode,
+                                                                                 name: country.name,
+                                                                                 capitalCity: country.capitalCity,
+                                                                                 longitude: country.longitude,
+                                                                                 latitude: country.latitude,
+                                                                                 userNotes: userNotes,
+                                                                                 isFavorite: true))
+                        presentations.forEach {$0.wrappedValue = false }
+                    }
                 }
                 
                 Spacer()

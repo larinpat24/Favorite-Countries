@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct CountrySearchableListView: View {
-    @State private var country: [Country] = []
+    @State private var country: [SearchableCountry] = []
     @State private var isShowingAlert = false
-    @State private var selectedCountry: Country?
+    @State private var selectedCountry: SearchableCountry?
     @State private var isShowingDetailScreen = false
     @State private var viewModel: CountryListViewModel = CountryListViewModel()
+    var favoriteCountryListViewModel: FavoriteCountryListViewModel
     @State private var searchText = ""
     @Binding var showSearchableCountriesView: Bool
     @Environment(\.dismiss) var dismiss
@@ -48,7 +49,7 @@ struct CountrySearchableListView: View {
             .navigationTitle("Countries 🌎")
             .searchable(text: $searchText)
             .sheet(item: $selectedCountry) { country in
-                CountryDetailView(country: country)
+                CountryDetailView(country: country, viewModel: favoriteCountryListViewModel)
                     .environment(\.presentations, presentations + [$showSearchableCountriesView])
             }
             .toolbar {

@@ -1,5 +1,5 @@
 //
-//  CountryDataSource.swift
+//  FavoriteCountryDataBase.swift
 //  Favorite Countries
 //
 //  Created by Niral Patel on 7/3/24.
@@ -8,20 +8,20 @@
 import Foundation
 import SwiftData
 
-final class CountryDataSource {
-    static let shared = CountryDataSource()
+final class FavoriteCountryDataBase {
+    static let shared = FavoriteCountryDataBase()
     
     private let container: ModelContainer
     
     private init() {
         do {
-            self.container = try ModelContainer(for: Country.self)
+            self.container = try ModelContainer(for: FavoriteCountry.self)
         } catch {
             fatalError("Failed to initialize ModelContainer: \(error.localizedDescription)")
         }
     }
     
-    func addCountry(country: Country) {
+    func addFavoriteCountry(country: FavoriteCountry) {
         let context = ModelContext(container)
         context.insert(country)
         do {
@@ -31,20 +31,20 @@ final class CountryDataSource {
         }
     }
     
-    func fetchCountries() -> [Country] {
+    func fetchFavoriteCountries() -> [FavoriteCountry] {
         let context = ModelContext(container)
         do {
-            return try context.fetch(FetchDescriptor<Country>())
+            return try context.fetch(FetchDescriptor<FavoriteCountry>())
         } catch {
             fatalError("Failed to fetch countries: \(error.localizedDescription)")
         }
     }
     
-    func removeCountry(_ country: Country) {
+    func removeFavoriteCountry(_ country: FavoriteCountry) {
         let context = ModelContext(container)
         let idToDelete = country.persistentModelID
         do {
-            try context.delete(model: Country.self, where: #Predicate { country in
+            try context.delete(model: FavoriteCountry.self, where: #Predicate { country in
                 country.persistentModelID == idToDelete
             })
             try context.save()
@@ -56,7 +56,7 @@ final class CountryDataSource {
     func deleteAllData() {
         let context = ModelContext(container)
         do {
-            let countries = try context.fetch(FetchDescriptor<Country>())
+            let countries = try context.fetch(FetchDescriptor<FavoriteCountry>())
             for country in countries {
                 context.delete(country)
             }
