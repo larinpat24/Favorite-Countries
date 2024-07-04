@@ -24,6 +24,9 @@
 		1B7F8E982C365C60003E4227 /* CountryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F8E972C365C60003E4227 /* CountryDetailView.swift */; };
 		1B7F8E9A2C366909003E4227 /* MultiLineTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F8E992C366909003E4227 /* MultiLineTextView.swift */; };
 		1B7F8E9C2C367848003E4227 /* FCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F8E9B2C367848003E4227 /* FCButton.swift */; };
+		1B7F8E9E2C367F4E003E4227 /* FavoriteCountryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F8E9D2C367F4E003E4227 /* FavoriteCountryListViewModel.swift */; };
+		1B7F8EA02C368038003E4227 /* FavoriteCountryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F8E9F2C368038003E4227 /* FavoriteCountryListView.swift */; };
+		1B7F8EA22C368417003E4227 /* PopToRootEnviornmentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F8EA12C368417003E4227 /* PopToRootEnviornmentKey.swift */; };
 		1BB734282C2F3C7700990527 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BB734272C2F3C7700990527 /* Assets.xcassets */; };
 		1BB7342C2C2F3C7700990527 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BB7342B2C2F3C7700990527 /* Preview Assets.xcassets */; };
 		30C1AD58CFF6BD883DC11358 /* Pods_Favorite_Countries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04D05137E47BE5468C9C269 /* Pods_Favorite_Countries.framework */; };
@@ -41,7 +44,6 @@
 		1B33ECFC2C35DB0D006ED724 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		1B33ECFE2C35E679006ED724 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1B33ED002C361205006ED724 /* CountryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDataSource.swift; sourceTree = "<group>"; };
-		1B33ED052C361D71006ED724 /* FavoriteCountryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCountryListView.swift; sourceTree = "<group>"; };
 		1B33ED142C361EF9006ED724 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		1B33ED162C361F19006ED724 /* FCError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCError.swift; sourceTree = "<group>"; };
 		1B33ED182C361F36006ED724 /* CountryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListView.swift; sourceTree = "<group>"; };
@@ -50,6 +52,9 @@
 		1B7F8E972C365C60003E4227 /* CountryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailView.swift; sourceTree = "<group>"; };
 		1B7F8E992C366909003E4227 /* MultiLineTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLineTextView.swift; sourceTree = "<group>"; };
 		1B7F8E9B2C367848003E4227 /* FCButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCButton.swift; sourceTree = "<group>"; };
+		1B7F8E9D2C367F4E003E4227 /* FavoriteCountryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCountryListViewModel.swift; sourceTree = "<group>"; };
+		1B7F8E9F2C368038003E4227 /* FavoriteCountryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCountryListView.swift; sourceTree = "<group>"; };
+		1B7F8EA12C368417003E4227 /* PopToRootEnviornmentKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopToRootEnviornmentKey.swift; sourceTree = "<group>"; };
 		1BB7341E2C2F3C7500990527 /* Favorite Countries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Favorite Countries.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BB734272C2F3C7700990527 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BB734292C2F3C7700990527 /* Favorite_Countries.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Favorite_Countries.entitlements; sourceTree = "<group>"; };
@@ -101,7 +106,8 @@
 		1B33ED032C361D43006ED724 /* FavoriteCountryListView */ = {
 			isa = PBXGroup;
 			children = (
-				1B33ED052C361D71006ED724 /* FavoriteCountryListView.swift */,
+				1B7F8E9D2C367F4E003E4227 /* FavoriteCountryListViewModel.swift */,
+				1B7F8E9F2C368038003E4227 /* FavoriteCountryListView.swift */,
 			);
 			path = FavoriteCountryListView;
 			sourceTree = "<group>";
@@ -138,6 +144,7 @@
 				1B33ED132C361E98006ED724 /* DataBase */,
 				1B33ED0B2C361DDF006ED724 /* Errors */,
 				1B33ED082C361D92006ED724 /* Managers */,
+				1B7F8EA12C368417003E4227 /* PopToRootEnviornmentKey.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -367,6 +374,8 @@
 				1B7F8E982C365C60003E4227 /* CountryDetailView.swift in Sources */,
 				1B7F8E9A2C366909003E4227 /* MultiLineTextView.swift in Sources */,
 				1B33ED152C361EF9006ED724 /* Country.swift in Sources */,
+				1B7F8EA02C368038003E4227 /* FavoriteCountryListView.swift in Sources */,
+				1B7F8E9E2C367F4E003E4227 /* FavoriteCountryListViewModel.swift in Sources */,
 				1B33ECFF2C35E679006ED724 /* NetworkManager.swift in Sources */,
 				1B33ED012C361205006ED724 /* CountryDataSource.swift in Sources */,
 				1B33ED1D2C361F95006ED724 /* CountrySearchableListView.swift in Sources */,
@@ -377,6 +386,7 @@
 				1B33ED1B2C361F66006ED724 /* Favorite_CountriesApp.swift in Sources */,
 				1B33ECC72C335B04006ED724 /* XCAssets+Generated.swift in Sources */,
 				1B33ECFD2C35DB0D006ED724 /* Endpoint.swift in Sources */,
+				1B7F8EA22C368417003E4227 /* PopToRootEnviornmentKey.swift in Sources */,
 				1B33ED192C361F36006ED724 /* CountryListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

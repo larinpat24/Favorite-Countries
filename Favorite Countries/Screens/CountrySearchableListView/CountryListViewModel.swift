@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 @Observable
-final class CountryListViewModel: ObservableObject {
+final class CountryListViewModel {
     var selectedCountry: Country?
     var countries: [Country] = []
     

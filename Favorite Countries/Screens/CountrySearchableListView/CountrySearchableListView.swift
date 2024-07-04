@@ -11,13 +11,13 @@ struct CountrySearchableListView: View {
     @State private var country: [Country] = []
     @State private var isShowingAlert = false
     @State private var selectedCountry: Country?
+    @State private var isShowingDetailScreen = false
     @State private var viewModel: CountryListViewModel = CountryListViewModel()
     @State private var searchText = ""
-    
-    init() {
-        adjustNavigationTitleToFitScreen()
-    }
-    
+    @Binding var showSearchableCountriesView: Bool
+    @Environment(\.dismiss) var dismiss
+    @Environment(\.presentations) private var presentations
+
     var body: some View {
         NavigationStack {
             List {
@@ -30,6 +30,7 @@ struct CountrySearchableListView: View {
                         .contentShape(Rectangle())
                         .onTapGesture {
                             selectedCountry = country
+                            isShowingDetailScreen = true
                         }
                         .task {
                             if viewModel.hasReachedEnd(of: country) && !viewModel.isFetching {
@@ -48,6 +49,14 @@ struct CountrySearchableListView: View {
             .searchable(text: $searchText)
             .sheet(item: $selectedCountry) { country in
                 CountryDetailView(country: country)
+                    .environment(\.presentations, presentations + [$showSearchableCountriesView])
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Dismiss") {
+                        dismiss()
+                    }
+                }
             }
         }
         .task {

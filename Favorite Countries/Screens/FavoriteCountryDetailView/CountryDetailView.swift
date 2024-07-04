@@ -11,6 +11,7 @@ struct CountryDetailView: View {
     let country: Country
     @State private var userNotes: String = ""
     @Environment(\.dismiss) var dismiss
+    @Environment(\.presentations) private var presentations
 
     var body: some View {
         NavigationStack {
@@ -20,15 +21,15 @@ struct CountryDetailView: View {
                 
                 MultiLineTextView(description: $userNotes,
                                   placeHolder: "My favorite things about \(country.name)...")
-                
-                Spacer()
-                
+                .padding(.bottom, 50)
+                                
                 FCButton(title: "Add as Favorite Country") {
-                    print("Handle adding to favorites here")
+                    presentations.forEach {$0.wrappedValue = false }
                 }
                 
                 Spacer()
             }
+            .padding(20)
             .navigationTitle("Favorite this Country 🌎")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {

@@ -1,30 +1,32 @@
-//
-//  FavoriteCountryListView.swift
-//  Favorite Countries
-//
-//  Created by Niral Patel on 6/28/24.
-//
-
 import SwiftUI
 import SwiftData
 
 struct FavoriteCountryListView: View {
     
+    @State private var showSearchableCountriesView = false
+    @Environment(\.presentations) private var presentations
+
     init() {
         adjustNavigationTitleToFitScreen()
     }
     
     var body: some View {
         NavigationStack {
-            List(MockData.sampleFavoriteCountries) { favoriteCountry in
-                FavoriteCountryListCell(favoriteCountry: favoriteCountry)
+            ZStack {
+                List(MockData.sampleFavoriteCountries) { favoriteCountry in
+                    FavoriteCountryListCell(favoriteCountry: favoriteCountry)
+                }
+                .listStyle(.plain)
             }
-            .listStyle(.plain)
             .navigationTitle("My Favorite Countries 🌎")
             .toolbar {
                 Button("Add Favorite Country", systemImage: "plus") {
-                    print("Should show detail scene")
+                    showSearchableCountriesView = true
                 }
+            }
+            .sheet(isPresented: $showSearchableCountriesView) {
+                CountrySearchableListView(showSearchableCountriesView: $showSearchableCountriesView)
+                    .environment(\.presentations, presentations + [$showSearchableCountriesView])
             }
         }
     }

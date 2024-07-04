@@ -20,7 +20,7 @@ struct CountryListView: View {
     var body: some View {
         
         if presentHorizontally {
-            HStack {
+            HStack(spacing: 20) {
                 self.countryIcon()
             }
         } else {
@@ -57,7 +57,6 @@ extension CountryListView {
             .background(Color(.systemBackground))
             .cornerRadius(8)
             .shadow(radius: 3.5)
-            .padding()
         
         Text(country.name)
             .font(.title2)

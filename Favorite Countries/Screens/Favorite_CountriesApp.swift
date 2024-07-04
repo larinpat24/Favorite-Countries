@@ -17,7 +17,7 @@ struct Favorite_CountriesApp: App {
     
     var body: some Scene {
         WindowGroup {
-            CountrySearchableListView()
+            FavoriteCountryListView()
         }
     }
 }
