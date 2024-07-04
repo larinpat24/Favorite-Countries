@@ -167,17 +167,16 @@ Examples:
 
   ## Future
   Some ways this project can be carries on in the future include:
-  1. Polish
-- Ensuring compatibility (already there, but could be improved) for:
-    - Dark Mode 
-    - Landscape 
-    - Accessibility
-    - Screen Sizes (biggest and smallest)
-    - iPad
-    - Localized Strings, add compatibility with SwiftGen (currently only generated files for Colors and Images)
-    - More testing
-    - Better Performance (more caching)
-    - Different Designs
+  - Ensuring compatibility (already there, but could be improved) for:
+       - Dark Mode 
+       - Landscape 
+       - Accessibility
+       - Screen Sizes (biggest and smallest)
+       - iPad
+   - Localized Strings, add compatibility with SwiftGen (currently only generated files for Colors and Images)
+   - More robust Unit, UI, and Integration Testing
+   - Better Performance (more caching)
+   - Different Designs
 
  ## Contact
 Created by Niral Patel] - niralp@student.fdu.edu
