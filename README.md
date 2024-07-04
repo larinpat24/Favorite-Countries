@@ -130,7 +130,7 @@ Future tests that can be written to expand this include:
 - Test Navigation. Example, a) tapping + button on HomeScene should lead to Country Search Scene, b) tapping on an item in Search Country Scene should present Country Details Scene, c) tapping "Add as Favorite Country" should dismiss all modals and pop the user back to root (Home Scene).
 - Test View Elements, Example, a) Home Scene should have a plus button to present Search Country Scene Modally, b) Country Details Scene should have a text field for the user to enter details about their favorite country, c) Search Country Scene should have a search bar for searching countries, d) country items should appear in the list while searching; etc.
 
-## Testing
+## Technologies
 - Xcode
 - Swift
 - SwiftUI
