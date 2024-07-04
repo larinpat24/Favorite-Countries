@@ -13,7 +13,8 @@ struct FavoriteCountryListCell: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            CountryListCell(country: favoriteCountry)
+            CountryListView(country: favoriteCountry,
+                            presentHorizontally: true)
             
             VStack(alignment: .leading){
                 Text("Details:")

@@ -30,11 +30,6 @@ struct FavoriteCountryListView: View {
     }
 }
 
-
-#Preview {
-    FavoriteCountryListView()
-}
-
 extension FavoriteCountryListView {
     
     /// Allows the navigation title to adjust its size based on screen size

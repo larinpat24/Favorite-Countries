@@ -10,6 +10,7 @@ import SwiftData
 
 @Observable
 final class CountryListViewModel: ObservableObject {
+    var selectedCountry: Country?
     var countries: [Country] = []
     
     private(set) var error: FCError?
@@ -94,5 +95,16 @@ extension CountryListViewModel {
         case fetching
         case loading
         case finished
+    }
+}
+
+extension CountryListViewModel {
+    
+    func navigationDestination(for country: Country) {
+        selectedCountry = country
+    }
+    
+    func dismissModally() {
+        selectedCountry = nil
     }
 }
