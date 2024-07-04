@@ -10,17 +10,20 @@ import SwiftUI
 struct CountrySearchableListView: View {
     @State private var country: [Country] = []
     @State private var isShowingAlert = false
-    @State private var viewModel = CountryListViewModel()
+    @State private var viewModel: CountryListViewModel = CountryListViewModel()
+    @State private var searchText = ""
     
     var body: some View {
         NavigationStack {
-            List(viewModel.countries) { country in
-                CountryListCell(country: country)
-                    .task {
-                        if viewModel.hasReachedEnd(of: country) && !viewModel.isFetching {
-                            await viewModel.fetchNextSetOfCountries()
+            List {
+                ForEach(viewModel.countries.filter { searchText.isEmpty || $0.name.localizedCaseInsensitiveContains(searchText)}) { country in
+                    CountryListCell(country: country)
+                        .task {
+                            if viewModel.hasReachedEnd(of: country) && !viewModel.isFetching {
+                                await viewModel.fetchNextSetOfCountries()
+                            }
                         }
-                    }
+                }
             }
             .overlay(alignment: .bottom) {
                 if viewModel.isFetching {
@@ -29,6 +32,7 @@ struct CountrySearchableListView: View {
             }
             .listStyle(.plain)
             .navigationTitle("Countries 🌎")
+            .searchable(text: $searchText)
         }
         .task {
             viewModel.getCountries()
@@ -36,9 +40,4 @@ struct CountrySearchableListView: View {
         .alert(isPresented: $viewModel.hasError,
                error: viewModel.error) { }
     }
-}
-
-#Preview {
-    CountrySearchableListView()
-        .modelContainer(for: Country.self)
 }

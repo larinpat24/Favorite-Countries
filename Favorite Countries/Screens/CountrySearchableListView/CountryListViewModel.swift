@@ -10,8 +10,6 @@ import SwiftData
 
 @Observable
 final class CountryListViewModel: ObservableObject {
-    @ObservationIgnored
-    private let dataSource: CountryDataSource
     var countries: [Country] = []
     
     private(set) var error: FCError?
@@ -23,10 +21,6 @@ final class CountryListViewModel: ObservableObject {
     
     var isFetching: Bool {
         viewState == .fetching
-    }
-    
-    init(database: CountryDataSource = CountryDataSource.shared) {
-        self.dataSource = database
     }
     
     @MainActor

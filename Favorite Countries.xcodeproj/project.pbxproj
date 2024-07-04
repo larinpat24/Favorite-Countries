@@ -84,10 +84,10 @@
 		1B33ED022C361D33006ED724 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				1B33ED1A2C361F66006ED724 /* Favorite_CountriesApp.swift */,
 				1B33ED032C361D43006ED724 /* FavoriteCountryListView */,
 				1B33ED042C361D54006ED724 /* CountrySearchableListView */,
 				1B33ED072C361D80006ED724 /* FavoriteCountryDetailView */,
-				1B33ED1A2C361F66006ED724 /* Favorite_CountriesApp.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";

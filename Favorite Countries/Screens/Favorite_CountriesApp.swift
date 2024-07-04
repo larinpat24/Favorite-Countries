@@ -10,20 +10,14 @@ import SwiftData
 
 @main
 struct Favorite_CountriesApp: App {
-    let container: ModelContainer
+    
+    init() {
+        _ = CountryDataSource.shared
+    }
     
     var body: some Scene {
         WindowGroup {
             CountrySearchableListView()
-                .modelContainer(container)
-        }
-    }
-    
-    init() {
-        do {
-            container = try ModelContainer(for: Country.self)
-        } catch {
-            fatalError("Failed to create Model Container")
         }
     }
 }
