@@ -1,5 +1,5 @@
 //
-//  FavoriteCountryListViewModel.swift
+//  CountryListViewModel.swift
 //  Favorite Countries
 //
 //  Created by Niral Patel on 7/2/24.
@@ -9,10 +9,10 @@ import SwiftUI
 import SwiftData
 
 @Observable
-final class FavoriteCountryListViewModel: ObservableObject {
+final class CountryListViewModel: ObservableObject {
     @ObservationIgnored
     private let dataSource: CountryDataSource
-    var favoriteCountries: [Country] = []
+    var countries: [Country] = []
     
     private(set) var error: FCError?
     var hasError = false
@@ -37,7 +37,7 @@ final class FavoriteCountryListViewModel: ObservableObject {
         Task {
             do {
                 let response = try await NetworkManager.shared.getRequest(.countries(page: page), type: JSONResponse.self)
-                favoriteCountries = response.countries.filter { !$0.capitalCity.isEmpty}
+                countries = response.countries.filter { !$0.capitalCity.isEmpty}
                 self.totalPages = response.paginationInfo.pages
             } catch {
                 if let fcError = error as? FCError {
@@ -69,7 +69,7 @@ final class FavoriteCountryListViewModel: ObservableObject {
         page += 1
         do {
             let response = try await NetworkManager.shared.getRequest(.countries(page: page), type: JSONResponse.self)
-            favoriteCountries += response.countries.filter { !$0.capitalCity.isEmpty}
+            countries += response.countries.filter { !$0.capitalCity.isEmpty}
             self.totalPages = response.paginationInfo.pages
         } catch {
             if let fcError = error as? FCError {
@@ -91,11 +91,11 @@ final class FavoriteCountryListViewModel: ObservableObject {
     }
     
     func hasReachedEnd(of country: Country) -> Bool {
-        favoriteCountries.last?.id == country.id
+        countries.last?.id == country.id
     }
 }
 
-extension FavoriteCountryListViewModel {
+extension CountryListViewModel {
     enum ViewState {
         case fetching
         case loading
