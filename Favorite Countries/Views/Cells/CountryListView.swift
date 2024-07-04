@@ -21,11 +21,11 @@ struct CountryListView: View {
         
         if presentHorizontally {
             HStack(spacing: Constants.horizontalSpacing) {
-                self.countryIcon()
+                countryIcon
             }
         } else {
             VStack(alignment: .center) {
-                self.countryIcon()
+                countryIcon
             }
         }
         
@@ -52,19 +52,20 @@ extension CountryListView {
             .joined()
     }
     
-    @ViewBuilder
-    private func countryIcon() -> some View {
+    @ViewBuilder private var countryIcon: some View {
         let emojiCountryFlag = self.convertToCountryFlag(from: country.countryCode)
         
-        Text(emojiCountryFlag)
-            .font(.largeTitle)
-            .frame(width: Constants.emojiFlagSize, height: Constants.emojiFlagSize)
-            .background(Color(.systemBackground))
-            .cornerRadius(Constants.cornerRadiusEmojiView)
-            .shadow(radius: Constants.shadowRadiusEmojiView)
-        
-        Text(country.name)
-            .font(.title2)
-            .fontWeight(.medium)
+        Group {
+            Text(emojiCountryFlag)
+                .font(.largeTitle)
+                .frame(width: Constants.emojiFlagSize, height: Constants.emojiFlagSize)
+                .background(Color(.systemBackground))
+                .cornerRadius(Constants.cornerRadiusEmojiView)
+                .shadow(radius: Constants.shadowRadiusEmojiView)
+            
+            Text(country.name)
+                .font(.title2)
+                .fontWeight(.medium)
+        }
     }
 }

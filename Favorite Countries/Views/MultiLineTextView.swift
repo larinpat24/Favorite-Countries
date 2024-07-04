@@ -24,9 +24,6 @@ struct MultiLineTextView: View {
 extension MultiLineTextView {
     private enum Constants {
         static let textFieldLineLimit: Int = 4
-        static let textFieldHeight: CGFloat = 250
         static let textFieldCornerRadius: CGSize = CGSize(width: 16, height: 16)
-        static let textFieldBorderOpacity: CGFloat = 0.2
-        static let textFieldBorderWidth: CGFloat = 4
     }
 }

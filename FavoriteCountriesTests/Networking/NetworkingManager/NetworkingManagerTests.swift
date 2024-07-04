@@ -42,8 +42,8 @@ class NetworkingManagerTests: XCTestCase {
         }
         
         let result = try await NetworkManager.shared.getRequest(session: session,
-                                                       .countries(page: 1),
-                                                       type: JSONResponse.self)
+                                                                .countries(page: 1),
+                                                                type: JSONResponse.self)
         let staticJSON = try StaticJSONMapper.decode(file: "CountriesStaticData", type: JSONResponse.self)
         XCTAssertEqual(result.paginationInfo, staticJSON.paginationInfo, "The return response should be decoded successfully")
     }
