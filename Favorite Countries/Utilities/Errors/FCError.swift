@@ -16,9 +16,9 @@ enum FCError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .invalidURL, .invalidResponse, .invalidData:
-            "Something went wrong, please contact support"
+            FCStrings.fcErrorSomethingWentWrong
         case .unableToComplete:
-            "Unable to fetch countries. Please try again later or check your network connection"
+            FCStrings.fcErrorUnableToComplete
         }
     }
 }

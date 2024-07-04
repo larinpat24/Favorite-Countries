@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct CountryDetailView: View {
-    let country: Country
     @State private var userNotes: String = ""
     @Environment(\.dismiss) var dismiss
     @Environment(\.presentations) private var presentations
     
+    let country: Country
     var viewModel: FavoriteCountryListViewModel
     
-    var countryAlreadyAdded: Bool {
+    private var countryAlreadyAdded: Bool {
         viewModel.favoriteCountries.contains(where: { $0.countryCode == country.countryCode })
     }
-
+    
     var body: some View {
         NavigationStack {
             VStack(alignment: .center) {
@@ -27,18 +27,19 @@ struct CountryDetailView: View {
                 
                 
                 
-                if  countryAlreadyAdded {
+                if countryAlreadyAdded {
                     /// country already added to favorites
-                    ContentUnavailableView("This country is already in your favorites. Good Choice! 🥳", systemImage: "suitcase.cart.fill")
-                        .padding(.bottom, 100)
+                    ContentUnavailableView(FCStrings.countryDetailViewCountryAlreadyFavorited,
+                                           systemImage: SymbolIcons.suitcaseIcon)
+                    .padding(.bottom, Constants.countryAlreadyAddedContentUnavailableViewBottom1Padding)
                     Spacer()
                 } else {
                     
                     MultiLineTextView(description: $userNotes,
-                                      placeHolder: "My favorite things about \(country.name)...")
-                    .padding(.bottom, 50)
+                                      placeHolder: "\(FCStrings.countryDetailsViewTextFieldPlaceholder) \(country.name)...")
+                    .padding(.bottom, Constants.countryDetailsTextFieldBottom1Padding)
                     
-                    FCButton(title: "Add as Favorite Country") {
+                    FCButton(title: FCStrings.countryDetailsViewAddFavoriteCountryButtonText) {
                         viewModel.createFavoriteCountry(country: FavoriteCountry(id: UUID(),
                                                                                  countryCode: country.countryCode,
                                                                                  name: country.name,
@@ -53,16 +54,25 @@ struct CountryDetailView: View {
                 
                 Spacer()
             }
-            .padding(20)
-            .navigationTitle("Favorite this Country 🌎")
+            .padding(Constants.countryDetailsViewPadding)
+            .navigationTitle(FCStrings.countryDetailViewNavigationTitle)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Dismiss") {
+                    Button(FCStrings.toolBarItemDismissButtonText) {
                         dismiss()
                     }
                 }
             }
         }
+        
+    }
+}
+
+extension CountryDetailView {
+    private enum Constants {
+        static let countryAlreadyAddedContentUnavailableViewBottom1Padding: CGFloat = 100
+        static let countryDetailsTextFieldBottom1Padding: CGFloat = 50
+        static let countryDetailsViewPadding: CGFloat = 20
         
     }
 }

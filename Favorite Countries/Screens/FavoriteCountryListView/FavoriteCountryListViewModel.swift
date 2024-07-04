@@ -10,8 +10,8 @@ import SwiftData
 
 @Observable
 final class FavoriteCountryListViewModel {
-    var favoriteCountries: [FavoriteCountry] = []
     private let favoriteCountryDB: FavoriteCountryDataBase = .shared
+    var favoriteCountries: [FavoriteCountry] = []
     var showEmptyState: Bool = false
     
     init() {

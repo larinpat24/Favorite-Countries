@@ -13,9 +13,10 @@ final class CountryListViewModel {
     var selectedCountry: SearchableCountry?
     var countries: [SearchableCountry] = []
     
+    private(set) var viewState: ViewState?
     private(set) var error: FCError?
     var hasError = false
-    private(set) var viewState: ViewState?
+    
     
     private var page = 1
     private var totalPages: Int?
@@ -99,16 +100,5 @@ extension CountryListViewModel {
         case fetching
         case loading
         case finished
-    }
-}
-
-extension CountryListViewModel {
-    
-    func navigationDestination(for country: SearchableCountry) {
-        selectedCountry = country
-    }
-    
-    func dismissModally() {
-        selectedCountry = nil
     }
 }

@@ -3,12 +3,12 @@ import SwiftData
 
 struct FavoriteCountryListView: View {
     
-    @State private var showSearchableCountriesView = false
     @Environment(\.presentations) private var presentations
     
+    @State private var showSearchableCountriesView = false
     @State private var viewModel: FavoriteCountryListViewModel = FavoriteCountryListViewModel()
-
-
+    
+    
     init() {
         adjustNavigationTitleToFitScreen()
     }
@@ -23,36 +23,34 @@ struct FavoriteCountryListView: View {
                     .onDelete(perform: { indexSet in
                         viewModel.deleteItems(at: indexSet)
                     })
-                        
+                    
                 }
                 .listStyle(.plain)
                 
                 if viewModel.showEmptyState {
-                    ContentUnavailableView("No Favorite Countries Added",
-                                           systemImage: "globe.americas.fill",
-                                           description: Text("Click the plus button to add your favorites countries"))
-                    .padding(.bottom, 150)
+                    ContentUnavailableView(FCStrings.favoriteCountryListViewContentUnavailableTitle,
+                                           systemImage: SymbolIcons.globalGlobeFillIcon,
+                                           description: Text(FCStrings.favoriteCountryListViewContentUnavailableDescription))
+                    .padding(.bottom, Constants.contentUnavailableViewBottomPadding)
                 }
             }
-            .navigationTitle("My Favorite Countries 🌎")
+            .navigationTitle(FCStrings.favoriteCountryListViewNavigationTitle)
             .toolbar {
-                Button("Add Favorite Country", systemImage: "plus") {
+                Button(FCStrings.favoriteCountryListViewAddButtonDescription, systemImage: SymbolIcons.systemPlusIcon) {
                     showSearchableCountriesView = true
                 }
             }
             .sheet(isPresented: $showSearchableCountriesView) {
-                CountrySearchableListView(favoriteCountryListViewModel: viewModel, 
-                                          showSearchableCountriesView: $showSearchableCountriesView)
-                    .environment(\.presentations, presentations + [$showSearchableCountriesView])
+                CountrySearchableListView(showSearchableCountriesView: $showSearchableCountriesView, 
+                                          favoriteCountryListViewModel: viewModel)
+                .environment(\.presentations, presentations + [$showSearchableCountriesView])
             }
         }
     }
 }
 
 extension FavoriteCountryListView {
-    
-    /// Allows the navigation title to adjust its size based on screen size
-    func adjustNavigationTitleToFitScreen() {
-        UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).adjustsFontSizeToFitWidth = true
+    private enum Constants {
+        static let contentUnavailableViewBottomPadding: CGFloat = 150
     }
 }

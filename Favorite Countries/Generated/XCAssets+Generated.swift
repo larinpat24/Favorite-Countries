@@ -30,7 +30,6 @@ internal enum Asset {
     internal static let launchScreenLogo = ImageAsset(name: "launchScreenLogo")
   }
   internal enum Colors {
-    internal static let testColor = ColorAsset(name: "testColor")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name

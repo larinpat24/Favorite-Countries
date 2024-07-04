@@ -9,8 +9,8 @@ import SwiftUI
 
 struct CountryListView: View {
     
-    let country: Country
-    let presentHorizontally: Bool
+    private let country: Country
+    private let presentHorizontally: Bool
     
     init(country: Country, presentHorizontally: Bool) {
         self.country = country
@@ -20,7 +20,7 @@ struct CountryListView: View {
     var body: some View {
         
         if presentHorizontally {
-            HStack(spacing: 20) {
+            HStack(spacing: Constants.horizontalSpacing) {
                 self.countryIcon()
             }
         } else {
@@ -36,7 +36,12 @@ extension CountryListView {
     
     private enum Constants {
         static let baseUnicodeScalar = 127397
+        static let horizontalSpacing: CGFloat = 20
+        static let emojiFlagSize: CGFloat = 50
+        static let cornerRadiusEmojiView: CGFloat = 8
+        static let shadowRadiusEmojiView: CGFloat = 3.5
     }
+    
     /// Utility to convert a two letter country code into its equivalent emoji flag
     private func convertToCountryFlag(from countryCode: String) -> String {
         countryCode
@@ -53,10 +58,10 @@ extension CountryListView {
         
         Text(emojiCountryFlag)
             .font(.largeTitle)
-            .frame(width: 50, height: 50)
+            .frame(width: Constants.emojiFlagSize, height: Constants.emojiFlagSize)
             .background(Color(.systemBackground))
-            .cornerRadius(8)
-            .shadow(radius: 3.5)
+            .cornerRadius(Constants.cornerRadiusEmojiView)
+            .shadow(radius: Constants.shadowRadiusEmojiView)
         
         Text(country.name)
             .font(.title2)

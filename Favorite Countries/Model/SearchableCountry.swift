@@ -56,10 +56,10 @@ struct JSONResponse: Decodable {
 // MARK: MockData
 struct SearchableCountryMockData {
     static let sampleCountry = SearchableCountry(countryCode: "CH",
-                                       name: "Switzerland",
-                                       capitalCity: "Bern",
-                                       longitude: "7.44821",
-                                       latitude: "46.948")
+                                                 name: "Switzerland",
+                                                 capitalCity: "Bern",
+                                                 longitude: "7.44821",
+                                                 latitude: "46.948")
     
     static let sampleCountries = [sampleCountry, sampleCountry, sampleCountry, sampleCountry]
 }

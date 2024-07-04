@@ -13,25 +13,21 @@ struct FavoriteCountryListCell: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-                CountryListView(country: favoriteCountry as Country,
-                                presentHorizontally: true)
+            CountryListView(country: favoriteCountry as Country,
+                            presentHorizontally: true)
             
             VStack(alignment: .leading){
-                Text("Details:")
+                Text(FCStrings.favoriteCountryListCellDetailsHeader)
                     .font(.subheadline)
                     .fontWeight(.semibold)
                     .foregroundStyle(.secondary)
                     .padding(.top, 4)
                 
-                Text(favoriteCountry.userNotes.isEmpty ? "None" : favoriteCountry.userNotes)
+                Text(favoriteCountry.userNotes.isEmpty ? FCStrings.favoriteCountryListCellNoUserNotesLabel : favoriteCountry.userNotes)
                     .font(.footnote)
                     .fontWeight(.light)
                     .foregroundStyle(.secondary)
             }
         }
     }
-}
-
-#Preview {
-    FavoriteCountryListCell(favoriteCountry: FavoriteCountryMockData.sampleFavoriteCountry)
 }

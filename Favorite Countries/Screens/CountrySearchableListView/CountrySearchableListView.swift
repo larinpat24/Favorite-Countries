@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct CountrySearchableListView: View {
-    @State private var country: [SearchableCountry] = []
-    @State private var isShowingAlert = false
     @State private var selectedCountry: SearchableCountry?
     @State private var isShowingDetailScreen = false
     @State private var viewModel: CountryListViewModel = CountryListViewModel()
-    var favoriteCountryListViewModel: FavoriteCountryListViewModel
     @State private var searchText = ""
     @Binding var showSearchableCountriesView: Bool
+    
     @Environment(\.dismiss) var dismiss
     @Environment(\.presentations) private var presentations
-
+    
+    var favoriteCountryListViewModel: FavoriteCountryListViewModel
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -29,16 +29,16 @@ struct CountrySearchableListView: View {
                                             presentHorizontally: true)
                             Spacer()
                         }
-                            .contentShape(Rectangle())
-                            .onTapGesture {
-                                selectedCountry = country
-                                isShowingDetailScreen = true
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            selectedCountry = country
+                            isShowingDetailScreen = true
+                        }
+                        .task {
+                            if viewModel.hasReachedEnd(of: country) && !viewModel.isFetching {
+                                await viewModel.fetchNextSetOfCountries()
                             }
-                            .task {
-                                if viewModel.hasReachedEnd(of: country) && !viewModel.isFetching {
-                                    await viewModel.fetchNextSetOfCountries()
-                                }
-                            }
+                        }
                     }
                 }
                 
@@ -49,7 +49,7 @@ struct CountrySearchableListView: View {
                 }
             }
             .listStyle(.plain)
-            .navigationTitle("Countries 🌎")
+            .navigationTitle(FCStrings.countrySearchableListViewNavigationTitle)
             .searchable(text: $searchText)
             .sheet(item: $selectedCountry) { country in
                 CountryDetailView(country: country, viewModel: favoriteCountryListViewModel)
@@ -57,7 +57,7 @@ struct CountrySearchableListView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Dismiss") {
+                    Button(FCStrings.toolBarItemDismissButtonText) {
                         dismiss()
                     }
                 }
@@ -68,13 +68,5 @@ struct CountrySearchableListView: View {
         }
         .alert(isPresented: $viewModel.hasError,
                error: viewModel.error) { }
-    }
-}
-
-extension CountrySearchableListView {
-    
-    /// Allows the navigation title to adjust its size based on screen size
-    func adjustNavigationTitleToFitScreen() {
-        UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).adjustsFontSizeToFitWidth = true
     }
 }

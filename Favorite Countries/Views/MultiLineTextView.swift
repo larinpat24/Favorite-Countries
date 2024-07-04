@@ -15,16 +15,18 @@ struct MultiLineTextView: View {
         VStack {
             TextField(placeHolder, text: $description, axis: .vertical)
                 .textFieldStyle(.roundedBorder)
-                .lineLimit(4, reservesSpace: true)
+                .lineLimit(Constants.textFieldLineLimit, reservesSpace: true)
                 .padding()
         }
     }
 }
 
-private enum Constants {
-    static let textFieldLineLimit: Int = 8
-    static let textFieldHeight: CGFloat = 250
-    static let textFieldCornerRadius: CGSize = CGSize(width: 16, height: 16)
-    static let textFieldBorderOpacity: CGFloat = 0.2
-    static let textFieldBorderWidth: CGFloat = 4
+extension MultiLineTextView {
+    private enum Constants {
+        static let textFieldLineLimit: Int = 4
+        static let textFieldHeight: CGFloat = 250
+        static let textFieldCornerRadius: CGSize = CGSize(width: 16, height: 16)
+        static let textFieldBorderOpacity: CGFloat = 0.2
+        static let textFieldBorderWidth: CGFloat = 4
+    }
 }
