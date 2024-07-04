@@ -7,18 +7,19 @@
 
 import Foundation
 
-final class NetworkManager {
+public final class NetworkManager {
     static let shared = NetworkManager()
     
-    private init() {}
+    public init() {}
         
-    func getRequest<T: Decodable>(_ endPoint: Endpoint,
+    func getRequest<T: Decodable>(session: URLSession = .shared,
+                                  _ endPoint: Endpoint,
                                   type: T.Type) async throws -> T {
         guard let url = endPoint.url else {
             throw FCError.invalidURL
         }
         
-        let (data, response) = try await URLSession.shared.data(from: url)
+        let (data, response) = try await session.data(from: url)
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
             throw FCError.invalidResponse

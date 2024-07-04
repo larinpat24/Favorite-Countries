@@ -8,14 +8,14 @@
 import Foundation
 
 // MARK: PaginationInfo
-struct PaginationInfo: Decodable {
+struct PaginationInfo: Decodable, Equatable {
     let page: Int
     let pages: Int
     let perPage: String
     let total: Int
 }
 
-struct SearchableCountry: Country, Decodable, Identifiable {
+struct SearchableCountry: Country, Decodable, Identifiable, Equatable {
     
     var id: UUID = UUID()
     let countryCode: String
@@ -42,7 +42,7 @@ struct SearchableCountry: Country, Decodable, Identifiable {
 }
 
 // MARK: JSON Response (Top Level)
-struct JSONResponse: Decodable {
+struct JSONResponse: Decodable, Equatable {
     let paginationInfo: PaginationInfo
     let countries: [SearchableCountry]
     
