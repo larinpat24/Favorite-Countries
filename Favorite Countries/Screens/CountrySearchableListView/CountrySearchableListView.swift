@@ -21,27 +21,30 @@ struct CountrySearchableListView: View {
 
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(viewModel.countries.filter { searchText.isEmpty || $0.name.localizedCaseInsensitiveContains(searchText)}) { country in
-                    HStack {
-                        CountryListView(country: country, 
-                                        presentHorizontally: true)
-                        Spacer()
-                    }
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            selectedCountry = country
-                            isShowingDetailScreen = true
+            ZStack {
+                List {
+                    ForEach(viewModel.countries.filter { searchText.isEmpty || $0.name.localizedCaseInsensitiveContains(searchText)}) { country in
+                        HStack {
+                            CountryListView(country: country,
+                                            presentHorizontally: true)
+                            Spacer()
                         }
-                        .task {
-                            if viewModel.hasReachedEnd(of: country) && !viewModel.isFetching {
-                                await viewModel.fetchNextSetOfCountries()
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                selectedCountry = country
+                                isShowingDetailScreen = true
                             }
-                        }
+                            .task {
+                                if viewModel.hasReachedEnd(of: country) && !viewModel.isFetching {
+                                    await viewModel.fetchNextSetOfCountries()
+                                }
+                            }
+                    }
                 }
+                
             }
             .overlay(alignment: .bottom) {
-                if viewModel.isFetching {
+                if viewModel.isFetching || viewModel.isLoading {
                     ProgressView()
                 }
             }

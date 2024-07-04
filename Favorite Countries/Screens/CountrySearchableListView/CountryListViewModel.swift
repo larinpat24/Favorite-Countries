@@ -24,6 +24,10 @@ final class CountryListViewModel {
         viewState == .fetching
     }
     
+    var isLoading: Bool {
+        viewState == .loading
+    }
+    
     @MainActor
     func getCountries() {
         
