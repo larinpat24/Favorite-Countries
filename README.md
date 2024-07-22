@@ -30,7 +30,7 @@ Safe and Happy Travels ✈️🧳🌎~
 The purpose of this favorite country tracker, is to allow users to create and manage their own list of their favorite countries, with the goal of inspiring and motivating them to chase their travel dreams.
 
 ```markdown
-Simple iOS application, designed as a take-home project to showcase my skills in Swift and iOS development.
+Simple iOS project, designed to showcase my skills in Swift and iOS development.
 ```
 
 ## Features
@@ -179,7 +179,7 @@ Examples:
    - Different Designs
 
  ## Contact
-Created by Niral Patel] - niralp@student.fdu.edu
+Created by Niral Patel - niralp@student.fdu.edu
 
 It has been a pleasure working on this project, and I hope you enjoy it~
 Feel free to contact me for any questions or suggestions, or just to give feedback!
